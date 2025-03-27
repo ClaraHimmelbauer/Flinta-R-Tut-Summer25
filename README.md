@@ -1,6 +1,4 @@
-# Flinta-R-Tut-Summer25
-
-In this respository you will find everything needed for the Flinta\* R-Tutorium in the Sumemr Term 2025.
+# FLINTA\* R-Tutorium Summer Term 2025
 
 ## Getting started
 
