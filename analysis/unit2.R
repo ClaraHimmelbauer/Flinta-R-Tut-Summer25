@@ -128,13 +128,16 @@ names(silc_new2)
 # EXPORT DATA ---------------------------------------------
 # export it as an RDS
 saveRDS(silc_new2, "data/silc_indiv_new.RDS")
+
 # export it as csv for german pcs
+# that way you can use it in excel later on
+# however, csv take up more space than RDS, so only do this if you need the data in excel for large datasets
 write.csv2(silc_new2, "data/silc_indiv_new.csv")
-write.csv(silc_new2, "data/silc_indiv_new.csv", sep = ";")
+# write.csv(silc_new2, "data/silc_indiv_new.csv", sep = ";")
 
 # export for other pcs
 # i'm not sure how it is for mac
-write.csv(silc_new2, "data/silc_indiv_new.csv")
+# write.csv(silc_new2, "data/silc_indiv_new.csv")
 
 
 # EXERCISE: DO THE SAME WITH THE HOUSEHOLD FILE -----------
