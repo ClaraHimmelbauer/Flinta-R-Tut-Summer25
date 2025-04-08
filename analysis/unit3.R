@@ -55,6 +55,7 @@
 ### or use light and dark colors
 
 # here's a color palette finder: https://r-graph-gallery.com/color-palette-finder 
+# and look at the paletteer page: https://pmassicotte.github.io/paletteer_gallery/ 
 
 # chart types ---------------
 # don't use piecharts. they do not convey information well
