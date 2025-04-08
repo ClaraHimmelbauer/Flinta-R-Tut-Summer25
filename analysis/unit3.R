@@ -100,32 +100,177 @@
 
 # PREP ----------------------------------------------------
 # clean working environment
+rm(list = ls())
+gc()
 
 # library
+library(tidyverse)
+library(scales)
 
 # DATA ----------------------------------------------------
 # reading in data
+hh <- readRDS("data/silc_hh_new.rds")
+indiv <- readRDS("data/silc_indiv_new.rds")
+indiv <- read.csv2("data/silc_indiv_new.csv")
+
 
 # PLOT 1: HISTOGRAM ---------------------------------------
 # equivalized household income in Austria in 2008
+head(hh)
 
+# prepare the data ----------
+# filter the data
+table(hh$year, hh$country)
 
+df <- hh %>% 
+  filter(year == 2008, country == "AT")
+
+table(df$year, df$country)
+
+# plot
+ggplot(df, aes(x = heqinc)) +
+  geom_histogram()
+
+# gradually add to the plot to make it look nicer
+ggplot(df, aes(x = heqinc)) +
+  geom_histogram() +
+  
+  labs(title = "Distribution of equivalized household income",
+       subtitle = "In Austria, 2008") +
+  xlab("Household equivalized income") +
+  ylab("Number of observations") +
+  
+  theme_minimal() +
+  
+  scale_x_continuous(labels = scales::label_number()) +
+  
+  xlim(0, 100000)
+
+# export the plot
+# by hand
 
 # PLOT 2: DENSITY -----------------------------------------
 # equivalized household income in Austria, Germany, and Italy in 2013
+table(hh$country)
+hh %>% count(country)
+
+# prepare data
+df <- hh %>% 
+  filter(year == 2013)
+table(df$country)
+
+# look at data
+head(df)
+
+# make the plot
+ggplot(df, aes(x = heqinc, color = country)) +
+  geom_density(size = 1) +
+  
+  labs(title = "Distribution of equivalized household income",
+       subtitle = "In Italy, Germany, and Austria, 2013") +
+  xlab("Household equivalized income") +
+  ylab("Density") +
+  
+  theme_minimal() +
+  
+  scale_x_continuous(labels = scales::label_number()) +
+  scale_y_continuous(labels = scales::label_number()) +
+  
+  # scale_color_manual(values = c("slateblue", "firebrick", "grey20")) +
+  scale_color_manual(values = c( "#5a78c8", "firebrick", "grey20")) +
+  
+  xlim(0, 100000)
 
 
 
 # PLOT 3: SIMPLE BARPLOT ----------------------------------
 # share of total income that bottom 50% - middle 40% - top 10% of households hold
 # in Austria, 2013
+# using weights
 
+df <- hh %>% 
+  filter(year == 2013, country == "AT") 
+head(df)
 
+df <- df %>% 
+  arrange(hinc)
+head(df)
+
+# cumulated household weights because one household counts for more households
+df$cumsum_w <- cumsum(df$hweight)
+head(df)
+# check
+max(df$cumsum_w)
+# makes sense, there are about 3.700k households in austria in 2013
+
+# our limits for 0.5 and 0.9 are 50% and 90% of the total sum of households
+total_households <- sum(df$hweight)
+lim.5 <- 0.5 * total_households
+lim.9 <- 0.9 * total_households
+
+df$group <- ifelse(df$cumsum_w <= lim.5, "Bottom 50%",
+                   ifelse(df$cumsum_w > lim.9, "Top 10%", "Middle 40%"))
+
+# check with frequency table
+table(df$group)
+# percentage table
+prop.table(table(df$group))
+# yes, there are about 50, 40, and 10% of all observations in the groups
+
+head(df)
+
+dfx <- df %>% 
+  group_by(group) %>% 
+  summarize(total_hinc = sum(hinc))
+dfx
+dfx$share <- dfx$total_hinc / sum(dfx$total_hinc)
+dfx
+
+# make the barplot
+ggplot(dfx, aes(x = group, y = share)) +
+  geom_bar(stat = "identity")
 
 # PLOT 4: GROUPED BARPLOT ---------------------------------
 # now we want to do the same but for all countries
-# in a way we want to reporduce Figure 2 of teh WOorld inequality report
+# in a way we want to reproduce Figure 2 of the World inequality report
 # https://wir2022.wid.world/executive-summary/ 
+
+df <- hh %>% 
+  filter(year == 2013) %>% 
+  arrange(hinc) %>% 
+  group_by(country) %>% 
+  mutate(cumsum_w = cumsum(hweight))
+
+# calculate thresholds
+df <- df %>% 
+  group_by(country) %>% 
+  mutate(lim.5 = sum(hweight) * 0.5,
+         lim.9 = sum(hweight) * 0.9)
+
+# check if there are different limits for each country
+table(df$lim.5, df$country)
+
+df$group <- ifelse(df$cumsum_w <= df$lim.5, "Bottom 50%",
+                   ifelse(df$cumsum_w > df$lim.9, "Top 10%", "Middle 40%"))
+
+# check it in percentage table again
+# here for a cross-table i have to tell in prop.table to count the percentages over rows and not columns
+# the margin = 1 stands for rows
+prop.table(table(df$country, df$group), margin = 1)
+# i round it to make it look nicer
+round(prop.table(table(df$country, df$group), margin = 1), 3)
+
+dfx <- df %>% 
+  group_by(country, group) %>% 
+  summarise(total_hinc = sum(hinc)) %>% 
+  
+  ungroup() %>% group_by(country) %>% 
+  mutate(share = total_hinc / sum(total_hinc))
+dfx
+
+# plot
+ggplot(dfx, aes(fill = group, y = share, x = country)) + 
+  geom_bar(position="dodge", stat="identity")
 
 
 
@@ -346,9 +491,8 @@ sum(df$hweight)
 # also check with intuition: yes, tehre are about 3701302 private households in AT
 
 # quantiles we want to know
-quantile(df$cumsum_w, probs = c(0.5, 0.9))
-x <- quantile(df$cumsum_w, probs = c(0.5, 0.9))[1]
-y <- quantile(df$cumsum_w, probs = c(0.5, 0.9))[2]
+x <- sum(df$hweight) * 0.5
+y <- sum(df$hweight) * 0.9
 
 # group variable
 df$group <- ifelse(df$cumsum_w <= x, "Bottom 50%",
