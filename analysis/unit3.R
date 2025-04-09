@@ -174,7 +174,7 @@ ggplot(df, aes(x = heqinc, color = country)) +
   theme_minimal() +
   
   scale_x_continuous(labels = scales::label_number()) +
-  scale_y_continuous(labels = scales::label_number()) +
+  # scale_y_continuous(labels = scales::label_number()) +
   
   # scale_color_manual(values = c("slateblue", "firebrick", "grey20")) +
   scale_color_manual(values = c( "#5a78c8", "firebrick", "grey20")) +
@@ -314,9 +314,9 @@ head(indiv)
 
 
 
------------------------------------------------------------
+#----------------------------------------------------------
 # SOLUTIONS -----------------------------------------------
------------------------------------------------------------
+#----------------------------------------------------------
 
 # PREP ----------------------------------------------------
 # clean working environment
@@ -534,10 +534,11 @@ head(indiv)
 
 # a. choose your topic ------
 # what do you want to display?
-# some possibilities:
+# look at the variables and decide what you're interested in
+# some possibilities and ideas:
 ### average income by sex. 
 ### education level by sex
-### income and age
+### average/median income and age
 
 # which countries and years?
 ### countries: AT, IT, DE
