@@ -314,84 +314,9 @@ head(indiv)
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# SOLVED (I DID THIS BEFORE TO PREPARE FOR THE UNIT)
-# DON'T LOOK AT SOLUTIONS BEFOREHAND
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+-----------------------------------------------------------
+# SOLUTIONS -----------------------------------------------
+-----------------------------------------------------------
 
 # PREP ----------------------------------------------------
 # clean working environment
@@ -553,8 +478,8 @@ sum(df$hweight[df$country == "IT"]) == max(df$cumsum_w[df$country == "IT"])
 df <- df %>% 
   # get quantile ratios
   group_by(country) %>%
-  mutate(x = quantile(cumsum_w, probs = c(0.5, 0.9))[1],
-         y = quantile(cumsum_w, probs = c(0.5, 0.9))[2])
+  mutate(x = sum(hweight) * 0.5,
+         y = sum(hweight) * 0.9)
 
 # check that
 table(df$x, df$y)
