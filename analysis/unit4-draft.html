@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Clara Himmelbauer">
+
+<title>Unit 4 - Repeating and finishing a project</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="unit4-draft_files/libs/clipboard/clipboard.min.js"></script>
+<script src="unit4-draft_files/libs/quarto-html/quarto.js"></script>
+<script src="unit4-draft_files/libs/quarto-html/popper.min.js"></script>
+<script src="unit4-draft_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="unit4-draft_files/libs/quarto-html/anchor.min.js"></script>
+<link href="unit4-draft_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="unit4-draft_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="unit4-draft_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="unit4-draft_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="unit4-draft_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Unit 4 - Repeating and finishing a project</h1>
+<p class="subtitle lead">Draft</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Clara Himmelbauer </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="general-overview" class="level2">
+<h2 class="anchored" data-anchor-id="general-overview">General overview</h2>
+<section id="what-is-quarto" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-quarto">What is Quarto?</h3>
+<p>Quarto enables you to write code and text “as one”. It is the Posit (the company behind RStudio) version of Jupyter Notebooks, which became popular for python in recent years.</p>
+</section>
+<section id="how-does-it-work" class="level3">
+<h3 class="anchored" data-anchor-id="how-does-it-work">How does it work?</h3>
+<p>Quarto has a source and a visual editor. We will be mostly working in the visual editor. If you go directly to the source, you will see that the underlying “language” is Markdown - a typography language used a lot in programming and text designing. You can do everything with the buttons in the menu above, but you might still learn the most basic markdown shortcuts, e.g.&nbsp;for inserting code or making headings.</p>
+<p>To render your document, click the <code>Render</code> button above. You might want to change your settings to render inside the RStudio viewer beforehand.</p>
+</section>
+<section id="resources" class="level3">
+<h3 class="anchored" data-anchor-id="resources">Resources</h3>
+<p>There are numerous markdown guides and cheatsheets available, for example <a href="https://www.datacamp.com/cheat-sheet/markdown-cheat-sheet-23">this one</a>. The general guide for Quarto can be found <a href="https://quarto.org/docs/guide/">here</a> on <a href="https://quarto.org/">quarto.org</a>.</p>
+</section>
+</section>
+<section id="preparation" class="level2">
+<h2 class="anchored" data-anchor-id="preparation">Preparation</h2>
+<section id="yaml-code-at-the-top" class="level3">
+<h3 class="anchored" data-anchor-id="yaml-code-at-the-top">YAML code at the top</h3>
+<p>The Code chunk at the top is called “YAML”, it specifies some of the metadata used throughout the document. Here, you can also change the type of your document output. For working, <code>HTML</code> is suggested. You can always change it to pdf later when exporting the document.</p>
+</section>
+<section id="packages" class="level3">
+<h3 class="anchored" data-anchor-id="packages">Packages</h3>
+<p>At first, we need to attach packages. Besides the usual <code>tidyverse</code> package, we also need <code>rmarkdown</code> for this.</p>
+<p>Another thing: Whenever you start a code chunk, you can give it some options using <code>#|</code>. An overviewo of execution options can be found <a href="https://quarto.org/docs/computations/execution-options.html">here</a>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("rmarkdown")</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"rmarkdown"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"tidyverse"</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"ggplot2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="data" class="level3">
+<h3 class="anchored" data-anchor-id="data">Data</h3>
+<p>Next, we need to import the data. We are going to use the same data as previous weeks - the SILC-Data.</p>
+<p>Before we do that we must however take care where our qmd file is located and saved, using the <code>getwd()</code> command. Then we have multiple options to deal with that. The easiest one is to re-define the path we are working at. Make sure, that you change this path whenever you are working on another PC.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "C:/Users/clara/Documents/R/Flinta-R-Tut-Summer25/analysis"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>parent_path <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"C:/Users/clara/Documents/R/Flinta-R-Tut-Summer25"</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>hh <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="fu">paste0</span>(parent_path, <span class="st">"/"</span>, <span class="st">"data/silc_hh_new.RDS"</span>))</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>ind <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="fu">paste0</span>(parent_path, <span class="st">"/"</span>, <span class="st">"data/silc_indiv_new.RDS"</span>))</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>all <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="fu">paste0</span>(parent_path, <span class="st">"/"</span>, <span class="st">"data/silc_all.RDS"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We might also want to look at our data, so let’s do this. <code>glimpse</code> and <code>str</code> both are nice ways to look at data.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(hh)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 116,569
+Columns: 9
+$ year    &lt;int&gt; 2008, 2008, 2008, 2008, 2008, 2008, 2008, 2008, 2008, 2008, 20~
+$ country &lt;chr&gt; "AT", "AT", "AT", "AT", "AT", "AT", "AT", "AT", "AT", "AT", "A~
+$ hid     &lt;int&gt; 4, 5, 6, 7, 9, 10, 11, 23, 12, 13, 16, 17, 18, 19, 20, 24, 25,~
+$ hinc    &lt;dbl&gt; 16792.40, 58727.60, 13044.20, 19858.20, 74073.52, 47715.87, 24~
+$ hsize   &lt;int&gt; 1, 5, 1, 2, 4, 3, 2, 3, 4, 3, 2, 4, 3, 4, 2, 1, 1, 5, 1, 5, 2,~
+$ heqinc  &lt;dbl&gt; 16792.40, 24469.83, 13044.20, 13238.80, 29629.41, 23857.94, 16~
+$ region  &lt;chr&gt; "AT3", "AT1", "AT3", "AT3", "AT1", "AT1", "AT2", "AT3", "AT1",~
+$ hweight &lt;dbl&gt; 845.0613, 199.2002, 1060.7000, 488.6925, 1155.0970, 550.5005, ~
+$ degurba &lt;int&gt; 2, 3, 1, 2, 3, 3, 3, 1, 2, 3, 1, 1, 2, 1, 1, 2, 2, 2, 3, 2, 1,~</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(ind)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   229131 obs. of  12 variables:
+ $ year        : int  2008 2008 2008 2008 2008 2008 2008 2008 2008 2008 ...
+ $ country     : chr  "AT" "AT" "AT" "AT" ...
+ $ pid         : int  1001 100101 1002 100201 100202 1003 100401 100402 100501 100502 ...
+ $ pweight     : num  551 583 551 1103 1103 ...
+ $ birthyear   : int  1927 1977 1929 1966 1970 1957 1942 1947 1927 1932 ...
+ $ sex         : int  1 1 2 1 2 2 1 2 1 2 ...
+ $ educ        : int  2 5 2 1 3 2 5 3 2 2 ...
+ $ empstatus   : int  NA 2 NA 3 NA 3 3 3 2 NA ...
+ $ workinghours: int  NA 42 NA 32 NA 40 NA NA NA NA ...
+ $ health      : int  3 1 2 2 1 2 3 3 3 3 ...
+ $ gross_income: num  0 5037 0 7989 0 ...
+ $ hid         : int  10 1001 10 1002 1002 10 1004 1004 1005 1005 ...</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="recap-dplyr-and-ggplot" class="level2">
+<h2 class="anchored" data-anchor-id="recap-dplyr-and-ggplot">Recap: dplyr and ggplot</h2>
+<p>We’re going to make a simple plot: In 2008, mean equivalized household income by country and degree of urbanization.</p>
+<section id="data-wrangling" class="level3">
+<h3 class="anchored" data-anchor-id="data-wrangling">Data wrangling</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> hh <span class="sc">%&gt;%</span> </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2008</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(country, degurba) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">heqinc =</span> <span class="fu">weighted.mean</span>(heqinc, hweight))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="table" class="level3">
+<h3 class="anchored" data-anchor-id="table">Table</h3>
+<p>Let’s render the table first.</p>
+<p>There are numerous ways to make nice tables. For presentation you might look in to <code>kable()</code>, <code>kableExtra</code>, and <code>gt</code>. Furthermore, you might want to export tables to LaTeX. Here, <code>stargazer</code> is the typical option. Don’t forget to install and attach the packages above though.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="tbl-degurba-heqinc" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-degurba-heqinc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Mean equivalized household income by country and Degree of Urbanization.
+</figcaption>
+<div aria-describedby="tbl-degurba-heqinc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">country</th>
+<th style="text-align: right;">degurba</th>
+<th style="text-align: right;">heqinc</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">AT</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">21893.91</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AT</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">22413.47</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AT</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">20394.14</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">DE</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">20968.12</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">DE</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">20910.77</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">DE</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">17842.63</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">IT</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">18798.08</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">IT</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">17320.09</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">IT</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">15671.60</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+</section>
+<section id="plot" class="level3">
+<h3 class="anchored" data-anchor-id="plot">Plot</h3>
+<p>Now we make a nice barchart. Before we do that, however, let’s make an internal link: The data used for the following plot is already displayed in <a href="#tbl-degurba-heqinc" class="quarto-xref">Table&nbsp;1</a>.</p>
+<p>Also, our degurba variable is still a numeric (integer). So let’s recode it to a factor.</p>
+<p>In the following code chunk, I use the option <code>#| echo: false</code>. It prevents the R-code from being shown and in the resulting document, only the ggplot is included. If you want this settings to apply to the whole document, you can include it at the YAML code chunk at the top of the quarto document.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-degurba-heqinc" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-degurba-heqinc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="unit4-draft_files/figure-html/fig-degurba-heqinc-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-degurba-heqinc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Mean equivalized household income by country and DEGURBA.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="practice-time" class="level2">
+<h2 class="anchored" data-anchor-id="practice-time">Practice time</h2>
+<p>So now it’s time for you to practice. Make a plot, where you have income on the y axis, and employment hours on the x axis. There should be 3 different lines, one for each country. The year we are doing this for is 2013.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-employment-income" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-employment-income-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="unit4-draft_files/figure-html/fig-employment-income-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-employment-income-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Income by employment hours, 2013.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="export" class="level2">
+<h2 class="anchored" data-anchor-id="export">Export</h2>
+<section id="export-the-data" class="level3">
+<h3 class="anchored" data-anchor-id="export-the-data">Export the data</h3>
+<p>For exporting data, we usually use <code>write.csv2</code> or <code>saveRDS</code>.</p>
+</section>
+<section id="export-the-plot" class="level3">
+<h3 class="anchored" data-anchor-id="export-the-plot">Export the plot</h3>
+<p>You can either manually save a plot or use the <code>ggsave</code> function of the ggplot package (if your plot is a ggplot).</p>
+<p>The <code>ggsave</code> function is a bit complicated, which is because of the dpi argument. It tells you the resolution of your plot. High resolutions (dpi = 300 is standard) is good, but make sure to put in high values for width and hight as well. Also make sure your background is “white”.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="fu">paste0</span>(parent_path, <span class="st">"/outputs/heqinc-degurba.png"</span>),</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">plot =</span> plot,</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">dpi =</span> <span class="dv">250</span>,</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">width =</span> <span class="dv">1440</span>,</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">height =</span> <span class="dv">810</span>,</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">units =</span> <span class="st">"px"</span>,</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">bg =</span> <span class="st">"white"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="export-a-latex-table" class="level3">
+<h3 class="anchored" data-anchor-id="export-a-latex-table">Export a LaTeX table</h3>
+<p>Sometimes, we want our tables to be further used as a LaTeX code. The typical way to go is by using the <code>stargazer</code> package and function.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>stargazer<span class="sc">::</span><span class="fu">stargazer</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+% Table created by stargazer v.5.2.3 by Marek Hlavac, Social Policy Institute. E-mail: marek.hlavac at gmail.com
+% Date and time: So., Mai 04, 2025 - 12:11:27
+\begin{table}[!htbp] \centering 
+  \caption{} 
+  \label{} 
+\begin{tabular}{@{\extracolsep{5pt}}lccccc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+Statistic &amp; \multicolumn{1}{c}{N} &amp; \multicolumn{1}{c}{Mean} &amp; \multicolumn{1}{c}{St. Dev.} &amp; \multicolumn{1}{c}{Min} &amp; \multicolumn{1}{c}{Max} \\ 
+\hline \\[-1.8ex] 
+\hline \\[-1.8ex] 
+\end{tabular} 
+\end{table} </code></pre>
+</div>
+</div>
+<p>I also recommend saving the LaTeX table code as a txt somewhere in your working directory.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>stargazer<span class="sc">::</span><span class="fu">stargazer</span>(df,</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>                     <span class="at">type =</span> <span class="st">"latex"</span>,</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">out =</span> <span class="fu">paste0</span>(parent_path, <span class="st">"/outputs/heqinc-degurba.txt"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="other-useful-stuff" class="level2">
+<h2 class="anchored" data-anchor-id="other-useful-stuff">Other useful stuff</h2>
+<section id="citations" class="level3">
+<h3 class="anchored" data-anchor-id="citations">Citations</h3>
+<p>You can add scientific references and citations for your document. <span class="citation" data-cites="eurostat2024">(<a href="#ref-eurostat2024" role="doc-biblioref">Eurostat 2024</a>)</span> for example is a citation of the 2023 EU-SILC.</p>
+<p>If you add a reference, you can see that quarto automatically creates a bibliography file, adds it to the YAML at the beginning, and includes it at the bottom of this document.</p>
+</section>
+<section id="maths" class="level3">
+<h3 class="anchored" data-anchor-id="maths">Maths</h3>
+<p>For Mathematics, LaTeX is the most convenient language. You can insert LaTeX code just like other languages like <code>python</code> or <code>julia</code>.</p>
+<p>For example: household income is the sum of personal income.</p>
+<p><span class="math display">\[
+hinc = \sum_i^n pinc_i
+\]</span></p>
+<p>Or, just to use fractions let’s add the formula used in schools for estimating percentages.</p>
+<p><span class="math display">\[
+A = G * \frac{p}{100}
+\]</span></p>
+</section>
+<section id="rendering-as-pdf" class="level3">
+<h3 class="anchored" data-anchor-id="rendering-as-pdf">Rendering as pdf</h3>
+<p>To render this document not as HTML but in any other format, change the YAML at the top. Typically, you want to work with an html document until you’re done. Then, for exporting, you might want to change it to pdf. You might have some trouble rendering due to your latex installation (at least it’s often troublesome for me). I use overleaf instead (an online editor for LaTeX).</p>
+
+</section>
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-eurostat2024" class="csl-entry" role="listitem">
+Eurostat. 2024. <span>“EU Statistics on Income and Living Conditions Microdata, 2024 Release, Data Covering Years 2004-2023.”</span> Eurostat. <a href="https://doi.org/10.2907/EUSILC2004-2023">https://doi.org/10.2907/EUSILC2004-2023</a>.
+</div>
+</div></section></div></main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
