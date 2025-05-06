@@ -78,16 +78,16 @@ div.csl-indent {
 }</style>
 
 
-<script src="unit4-draft_files/libs/clipboard/clipboard.min.js"></script>
-<script src="unit4-draft_files/libs/quarto-html/quarto.js"></script>
-<script src="unit4-draft_files/libs/quarto-html/popper.min.js"></script>
-<script src="unit4-draft_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="unit4-draft_files/libs/quarto-html/anchor.min.js"></script>
-<link href="unit4-draft_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="unit4-draft_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="unit4-draft_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="unit4-draft_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="unit4-draft_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="unit4_files/libs/clipboard/clipboard.min.js"></script>
+<script src="unit4_files/libs/quarto-html/quarto.js"></script>
+<script src="unit4_files/libs/quarto-html/popper.min.js"></script>
+<script src="unit4_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="unit4_files/libs/quarto-html/anchor.min.js"></script>
+<link href="unit4_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="unit4_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="unit4_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="unit4_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="unit4_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -130,7 +130,6 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Unit 4 - Repeating and finishing a project</h1>
-<p class="subtitle lead">Draft</p>
 </div>
 
 
@@ -163,6 +162,7 @@ window.Quarto = {
 <h3 class="anchored" data-anchor-id="how-does-it-work">How does it work?</h3>
 <p>Quarto has a source and a visual editor. We will be mostly working in the visual editor. If you go directly to the source, you will see that the underlying “language” is Markdown - a typography language used a lot in programming and text designing. You can do everything with the buttons in the menu above, but you might still learn the most basic markdown shortcuts, e.g.&nbsp;for inserting code or making headings.</p>
 <p>To render your document, click the <code>Render</code> button above. You might want to change your settings to render inside the RStudio viewer beforehand.</p>
+<p>If you want to run only the code Chunks go to Run and “Run all” or press <code>Ctrl</code>+ <code>Alt</code> + <code>Enter</code> on Windows (and some equivalent on Mac).</p>
 </section>
 <section id="resources" class="level3">
 <h3 class="anchored" data-anchor-id="resources">Resources</h3>
@@ -334,7 +334,7 @@ Table&nbsp;1: Mean equivalized household income by country and Degree of Urbaniz
 <div id="fig-degurba-heqinc" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-degurba-heqinc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="unit4-draft_files/figure-html/fig-degurba-heqinc-1.png" class="img-fluid figure-img" width="672">
+<img src="unit4_files/figure-html/fig-degurba-heqinc-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-degurba-heqinc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1: Mean equivalized household income by country and DEGURBA.
@@ -353,7 +353,7 @@ Figure&nbsp;1: Mean equivalized household income by country and DEGURBA.
 <div id="fig-employment-income" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-employment-income-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="unit4-draft_files/figure-html/fig-employment-income-1.png" class="img-fluid figure-img" width="672">
+<img src="unit4_files/figure-html/fig-employment-income-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-employment-income-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;2: Income by employment hours, 2013.
@@ -386,30 +386,15 @@ Figure&nbsp;2: Income by employment hours, 2013.
 <section id="export-a-latex-table" class="level3">
 <h3 class="anchored" data-anchor-id="export-a-latex-table">Export a LaTeX table</h3>
 <p>Sometimes, we want our tables to be further used as a LaTeX code. The typical way to go is by using the <code>stargazer</code> package and function.</p>
+<p>Don’t run this command if you export your Quarto-document into a pdf. That’s why it’s commented out below.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>stargazer<span class="sc">::</span><span class="fu">stargazer</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-% Table created by stargazer v.5.2.3 by Marek Hlavac, Social Policy Institute. E-mail: marek.hlavac at gmail.com
-% Date and time: Di, Mai 06, 2025 - 17:32:44
-\begin{table}[!htbp] \centering 
-  \caption{} 
-  \label{} 
-\begin{tabular}{@{\extracolsep{5pt}}lccccc} 
-\\[-1.8ex]\hline 
-\hline \\[-1.8ex] 
-Statistic &amp; \multicolumn{1}{c}{N} &amp; \multicolumn{1}{c}{Mean} &amp; \multicolumn{1}{c}{St. Dev.} &amp; \multicolumn{1}{c}{Min} &amp; \multicolumn{1}{c}{Max} \\ 
-\hline \\[-1.8ex] 
-\hline \\[-1.8ex] 
-\end{tabular} 
-\end{table} </code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># stargazer::stargazer(as.data.frame(df), summary = F)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>I also recommend saving the LaTeX table code as a txt somewhere in your working directory.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>stargazer<span class="sc">::</span><span class="fu">stargazer</span>(df,</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>                     <span class="at">type =</span> <span class="st">"latex"</span>,</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">out =</span> <span class="fu">paste0</span>(parent_path, <span class="st">"/outputs/heqinc-degurba.txt"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>stargazer<span class="sc">::</span><span class="fu">stargazer</span>(df,</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>                     <span class="at">type =</span> <span class="st">"latex"</span>,</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">out =</span> <span class="fu">paste0</span>(parent_path, <span class="st">"/outputs/heqinc-degurba.txt"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
@@ -425,16 +410,16 @@ Statistic &amp; \multicolumn{1}{c}{N} &amp; \multicolumn{1}{c}{Mean} &amp; \mult
 <p>For Mathematics, LaTeX is the most convenient language. You can insert LaTeX code just like other languages like <code>python</code> or <code>julia</code>.</p>
 <p>For example: household income is the sum of personal income.</p>
 <p><span class="math display">\[
-hinc = /sum_i^n pinc_i
+Householdincome = \sum_i^n pinc_i
 \]</span></p>
 <p>Or, just to use fractions let’s add the formula used in schools for estimating percentages.</p>
 <p><span class="math display">\[
-A = G * /frac{p}{100}
+A = G * \frac{p}{100}
 \]</span></p>
 </section>
 <section id="rendering-as-pdf" class="level3">
 <h3 class="anchored" data-anchor-id="rendering-as-pdf">Rendering as pdf</h3>
-<p>To render this document not as HTML but in any other format, change the YAML at the top. Typically, you want to work with an html document until you’re done. Then, for exporting, you might want to change it to pdf. You might have some trouble rendering due to your latex installation (at least it’s often troublesome for me). I use overleaf instead (an online editor for LaTeX).</p>
+<p>To render this document not as HTML but in any other format, change the YAML at the top. Typically, you want to work with an html document until you’re done. Then, for exporting, you might want to change it to pdf. You might have some trouble rendering due to your latex installation (at least it’s often troublesome for me). I mostly use overleaf to write presentations and reports of my research (an online editor for LaTeX).</p>
 
 </section>
 </section>
