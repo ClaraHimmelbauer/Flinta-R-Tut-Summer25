@@ -9,7 +9,7 @@ bibliography: references.bib
 
 ## General overview
 
-### What is Quarto? 
+### What is Quarto?
 
 Quarto enables you to write code and text "as one". It is the Posit (the company behind RStudio) version of Jupyter Notebooks, which became popular for python in recent years.
 
@@ -46,6 +46,7 @@ Another thing: Whenever you start a code chunk, you can give it some options usi
 library("rmarkdown")
 library("tidyverse")
 library("ggplot2")
+library("stargazer")
 ```
 
 ### Data
@@ -58,7 +59,7 @@ Before we do that we must however take care where our qmd file is located and sa
 #| label: data-load
 
 getwd()
-parent_path <- c("C:/Users/clara/Documents/R/Flinta-R-Tut-Summer25")
+parent_path <- c("C:/Users/chimmelb/OneDrive - WU Wien/Dokumente/Flinta-R-Tut-Summer25")
 
 hh <- readRDS(paste0(parent_path, "/", "data/silc_hh_new.RDS"))
 ind <- readRDS(paste0(parent_path, "/", "data/silc_indiv_new.RDS"))
@@ -233,13 +234,13 @@ For Mathematics, LaTeX is the most convenient language. You can insert LaTeX cod
 For example: household income is the sum of personal income.
 
 $$
-hinc = \sum_i^n pinc_i
+hinc = /sum_i^n pinc_i
 $$
 
 Or, just to use fractions let's add the formula used in schools for estimating percentages.
 
 $$
-A = G * \frac{p}{100}
+A = G * /frac{p}{100}
 $$
 
 ### Rendering as pdf

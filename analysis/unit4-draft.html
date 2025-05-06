@@ -183,7 +183,8 @@ window.Quarto = {
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("rmarkdown")</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"rmarkdown"</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"tidyverse"</span>)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"ggplot2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"ggplot2"</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"stargazer"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="data" class="level3">
@@ -193,9 +194,9 @@ window.Quarto = {
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "C:/Users/clara/Documents/R/Flinta-R-Tut-Summer25/analysis"</code></pre>
+<pre><code>[1] "C:/Users/chimmelb/OneDrive - WU Wien/Dokumente/Flinta-R-Tut-Summer25/analysis"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>parent_path <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"C:/Users/clara/Documents/R/Flinta-R-Tut-Summer25"</span>)</span>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>parent_path <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"C:/Users/chimmelb/OneDrive - WU Wien/Dokumente/Flinta-R-Tut-Summer25"</span>)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>hh <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="fu">paste0</span>(parent_path, <span class="st">"/"</span>, <span class="st">"data/silc_hh_new.RDS"</span>))</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>ind <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="fu">paste0</span>(parent_path, <span class="st">"/"</span>, <span class="st">"data/silc_indiv_new.RDS"</span>))</span>
@@ -207,15 +208,15 @@ window.Quarto = {
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 116,569
 Columns: 9
-$ year    &lt;int&gt; 2008, 2008, 2008, 2008, 2008, 2008, 2008, 2008, 2008, 2008, 20~
-$ country &lt;chr&gt; "AT", "AT", "AT", "AT", "AT", "AT", "AT", "AT", "AT", "AT", "A~
-$ hid     &lt;int&gt; 4, 5, 6, 7, 9, 10, 11, 23, 12, 13, 16, 17, 18, 19, 20, 24, 25,~
-$ hinc    &lt;dbl&gt; 16792.40, 58727.60, 13044.20, 19858.20, 74073.52, 47715.87, 24~
-$ hsize   &lt;int&gt; 1, 5, 1, 2, 4, 3, 2, 3, 4, 3, 2, 4, 3, 4, 2, 1, 1, 5, 1, 5, 2,~
-$ heqinc  &lt;dbl&gt; 16792.40, 24469.83, 13044.20, 13238.80, 29629.41, 23857.94, 16~
-$ region  &lt;chr&gt; "AT3", "AT1", "AT3", "AT3", "AT1", "AT1", "AT2", "AT3", "AT1",~
-$ hweight &lt;dbl&gt; 845.0613, 199.2002, 1060.7000, 488.6925, 1155.0970, 550.5005, ~
-$ degurba &lt;int&gt; 2, 3, 1, 2, 3, 3, 3, 1, 2, 3, 1, 1, 2, 1, 1, 2, 2, 2, 3, 2, 1,~</code></pre>
+$ year    &lt;int&gt; 2008, 2008, 2008, 2008, 2008, 2008, 2008, 2008, 2008, 2008, 20…
+$ country &lt;chr&gt; "AT", "AT", "AT", "AT", "AT", "AT", "AT", "AT", "AT", "AT", "A…
+$ hid     &lt;int&gt; 4, 5, 6, 7, 9, 10, 11, 23, 12, 13, 16, 17, 18, 19, 20, 24, 25,…
+$ hinc    &lt;dbl&gt; 16792.40, 58727.60, 13044.20, 19858.20, 74073.52, 47715.87, 24…
+$ hsize   &lt;int&gt; 1, 5, 1, 2, 4, 3, 2, 3, 4, 3, 2, 4, 3, 4, 2, 1, 1, 5, 1, 5, 2,…
+$ heqinc  &lt;dbl&gt; 16792.40, 24469.83, 13044.20, 13238.80, 29629.41, 23857.94, 16…
+$ region  &lt;chr&gt; "AT3", "AT1", "AT3", "AT3", "AT1", "AT1", "AT2", "AT3", "AT1",…
+$ hweight &lt;dbl&gt; 845.0613, 199.2002, 1060.7000, 488.6925, 1155.0970, 550.5005, …
+$ degurba &lt;int&gt; 2, 3, 1, 2, 3, 3, 3, 1, 2, 3, 1, 1, 2, 1, 1, 2, 2, 2, 3, 2, 1,…</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(ind)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -390,7 +391,7 @@ Figure&nbsp;2: Income by employment hours, 2013.
 <div class="cell-output cell-output-stdout">
 <pre><code>
 % Table created by stargazer v.5.2.3 by Marek Hlavac, Social Policy Institute. E-mail: marek.hlavac at gmail.com
-% Date and time: So., Mai 04, 2025 - 12:16:26
+% Date and time: Di, Mai 06, 2025 - 17:32:44
 \begin{table}[!htbp] \centering 
   \caption{} 
   \label{} 
@@ -424,11 +425,11 @@ Statistic &amp; \multicolumn{1}{c}{N} &amp; \multicolumn{1}{c}{Mean} &amp; \mult
 <p>For Mathematics, LaTeX is the most convenient language. You can insert LaTeX code just like other languages like <code>python</code> or <code>julia</code>.</p>
 <p>For example: household income is the sum of personal income.</p>
 <p><span class="math display">\[
-hinc = \sum_i^n pinc_i
+hinc = /sum_i^n pinc_i
 \]</span></p>
 <p>Or, just to use fractions let’s add the formula used in schools for estimating percentages.</p>
 <p><span class="math display">\[
-A = G * \frac{p}{100}
+A = G * /frac{p}{100}
 \]</span></p>
 </section>
 <section id="rendering-as-pdf" class="level3">
