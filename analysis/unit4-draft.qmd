@@ -2,7 +2,7 @@
 title: "Unit 4 - Repeating and finishing a project"
 subtitle: "Draft"
 author: "Clara Himmelbauer"
-format: html
+format: pdf
 editor: visual
 bibliography: references.bib
 ---
@@ -203,7 +203,7 @@ Sometimes, we want our tables to be further used as a LaTeX code. The typical wa
 ```{r}
 #| label: export-table-in-latex
 
-stargazer::stargazer(df)
+# stargazer::stargazer(df)
 
 ```
 
