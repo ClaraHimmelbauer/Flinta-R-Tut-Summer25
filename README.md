@@ -1,5 +1,7 @@
 # FLINTA\* R-Tutorium Summer Term 2025
 
+This course started as a FLINTA\* R-Tutorium in March 2025. The first 4 units covered the basics of R-langauge and were taught in a FLINTA\* context. Starting from unit 5 we will be covering more advanced and specialized topics and the Tutorium will be opened up to all students in general.
+
 ## Getting started
 
 ### Install R and R-Studio
