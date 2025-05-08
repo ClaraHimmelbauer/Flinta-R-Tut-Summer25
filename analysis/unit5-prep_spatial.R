@@ -2,7 +2,8 @@
 
 # for a good introduction to R-spatial, see: https://cengel.github.io/R-spatial/
 # for a collection of spatial Data for Austria go to: https://www.data.gv.at/ 
-# for an overview of crs in R: https://www.nceas.ucsb.edu/sites/default/files/2020-04/OverviewCoordinateReferenceSystems.pdf 
+# for graphs in R: https://r-graph-gallery.com/ 
+# for a tutorial on leaflet in R: https://rstudio.github.io/leaflet/ 
 
 # 1. PREP -----------------------------------------------------------------------------------------
 # clean working directory
@@ -10,11 +11,11 @@ rm(list = ls()); gc()
 
 # attach packages
 # if you haven't done so, install them first!
-packages <- c("sf", "leaflet", "tidyverse")
+packages <- c("sf", "leaflet", "tidyverse", "htmltools")
 sapply(packages, library, character.only = T)
 
 # the sf package is used for reading and writing spatial data. it is the successor of the older sp package
-# leaflet is for creating interactive maps
+# leaflet is for creating interactive maps, in combination with htmltools
 # tidyverse is the standard package collection for data handling
 
 # 2. DATA ----------------------------------------------------------------------------------------
@@ -101,8 +102,61 @@ bl$name <- c("Burgenland", "Kärnten", "Niederösterreich",
              "Tirol", "Vorarlberg", "Wien")
 
 # to export this data, use st_write
-st_write(bl, "data/bl.geojson")
+st_write(bl, "data/bl.geojson", append = F)
 
 # 5. GGPLOT ---------------------------------------------------------------------------------------
+# go to https://r-graph-gallery.com/ for examples!
+# as always with plots: start simple and tehn graudally improve it
 
-# 6. LEAFLET --------------------------------------------------------------------------------------
+
+# some schnitzelbrown colors
+col1 <- "#ffc40c"
+col2 <- "#eeaa0d"
+col3 <- "#de900f"
+col4 <- "#cd7710"
+col5 <- "#bd5d12"
+col6 <- "#ac4313"
+col7 <- "#702b0b"
+
+ggplot(bez) +
+  geom_sf(aes(fill = schnitzel), color = "black", linewidth = .5) +
+  
+  theme_void() +
+  
+  scale_fill_gradient(low = col1, high = col7,
+                      name = "Price",
+                      labels = scales::label_number(prefix = "€", big.mark = ".", decimal.mark = ",")) +
+  
+  labs(title = "Price of Schnitzel in Austrian Districts in €",
+       subtitle = "In Spring 2021")
+
+# 6. EXERCISE -------------------------------------------------------------------------------------
+# Make some ggplot for the number of Schnitzel people can buy from their average salary per year
+# also experiment a bit with the formatting
+
+# 7. LEAFLET --------------------------------------------------------------------------------------
+# for a full tutorial go to: https://rstudio.github.io/leaflet/
+pal <- colorNumeric(palette = c(col1, col2, col3, col4, col5, col6, col7), domain = bez$schnitzel)
+
+leaflet(data = bez) %>% 
+  addProviderTiles(providers$OpenStreetMap) %>% 
+  
+  addPolygons(
+    fillColor = ~pal(schnitzel),
+    color = "black",
+    weight = 1,
+    opacity = 1,
+    fillOpacity = 0.7,
+    label = ~paste0(name, ": ", schnitzel, "€")
+  ) %>% 
+  addPolylines(data = bl, color = "black", weight = 3) %>% 
+  
+  addLegend(
+    "topleft",
+    pal = pal,            
+    values = bez$schnitzel, 
+    title = "Price of Schnitzel in €",
+    labFormat = labelFormat(suffix = "€"),
+    opacity = 1
+  )
+
