@@ -206,3 +206,38 @@ plot(cooks.distance(ols))
 # nothing too bad, but we could exclude this one observation
 
 # BOOTSTRAPPING STANDARD ERRORS ---------------------------
+
+boot_fn <- function(data, indices) {
+  d <- data[indices, ]
+  model <- lm(inc20 ~ degurba +
+                sex + age + agesq + agecu +
+                activity_retired + activity_unemployed + activity_educ +
+                birthplace + employed +
+                workinghours + workinghours_sq + workinghours_cu +
+                educ,
+              weights = wght,
+              data = silc)
+  return(coef(model))
+}
+
+set.seed(123)
+boot_res <- boot::boot(data = silc, statistic = boot_fn, R = 1000)
+
+boot_se <- apply(boot_res$t, 2, sd)
+boot_coef <- boot_res$t0
+z_values <- boot_coef / boot_se
+p_values <- 2 * (1 - pnorm(abs(z_values)))
+
+# Combine into a data frame
+boot_results <- data.frame(
+  term = names(boot_coef),
+  estimate = boot_coef,
+  std_error = boot_se,
+  # z = z_values,
+  p_value = p_values
+)
+
+# BOOTSTRAPPING CONFIDENCE INTERVALS ----------------------
+# ask chatGPT how to do it
+
+# and then we could plot coefficients with bootstrapped standard errors
