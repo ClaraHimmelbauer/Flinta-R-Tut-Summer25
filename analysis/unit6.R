@@ -194,3 +194,195 @@ ggplot(data = dfols, aes(x = term, y = estimate, color = sig)) +
                      breaks = c("1% level", "5% level", "10% level", "Higher"), 
                      values = c("slateblue4", "slateblue2", "plum", "grey")) +
   theme_minimal()
+
+
+# LINEARITY -----------------------------------------------
+# (and Heteroskedasticity)
+
+# residuals for y axis
+# fitted values for x axis
+
+lin <- data.frame(residuals = residuals(ols4),
+                  fitted = fitted(ols4))
+ggplot(lin, aes(x = fitted, y = residuals)) +
+  geom_point() +
+  geom_smooth(color = "slateblue2") +
+  theme_minimal() +
+  ylab("Residuals") +
+  xlab("Fitted values") +
+  labs(title = "Linearity and Heteroskedasticity")
+
+# HETEROSKEDASTICITY --------------------------------------
+
+# Breusch-Pagan test for heteroskedasticity
+lmtest::bptest(ols4)
+
+# yes, heteroskedasticity
+# we need robust standard erros
+# bootstrapping - which we do later - is one way of doing that
+
+# NORMALITY -----------------------------------------------
+
+ggplot(lin, aes(x = residuals)) +
+  geom_histogram(aes(y = ..density..), fill = "grey") +
+  geom_density(color = "slateblue", linewidth = 2) +
+  stat_function(fun = dnorm,
+                args = list(mean = 0,
+                            sd = sd(lin$residuals)),
+                color = "grey30", linetype = "dashed", size = 1.5) +
+  theme_minimal() +
+  labs(title = "Distribution of residuals")
+
+# another plot possibility
+qqnorm(residuals(ols4))
+qqline(residuals(ols4))
+
+# test
+shapiro.test(residuals(ols4))
+# no normality
+
+
+# AUTOCORRELATION -----------------------------------------
+# breusch-godfrey test
+
+# does not work because of turkey
+lmtest::bgtest(ols4, order = 1)
+
+# so just to show use another model
+bgtest(ols, order = 1)
+
+# MULTICOLLINEARITY ---------------------------------------
+
+# variance inflation factor
+# highly correlated variables create high variances
+car::vif(ols4)
+
+# does not work because on observations in degurba x turkey
+# add interaction terms
+ols5 <- lm(inc20 ~
+             degurba +
+             sex + 
+             age + agesq + 
+             activity + 
+             birthplace + 
+             workinghours + workinghours_sq + workinghours_cu +
+             educ +
+             degurba:sex,
+           data = silc,
+           weights = wght)
+car::vif(ols5)
+
+
+# between whcih pair of variables is the correlation
+X <- model.matrix(ols5)
+# Drop intercept
+X <- X[, -1]
+# Compute correlation matrix
+cor_matrix <- cor(X)
+View(round(cor_matrix, 2))
+# also make a heatmap/corplot out of this
+
+# INFLUENCE -----------------------------------------------
+# cooks distance shows how much influence one single observation has on the betas
+# but outliers can give you additional information
+# so you might consider to include them anyway
+# or to censor them
+# or look at why they are outliers
+
+plot(cooks.distance(ols5))
+
+which(cooks.distance(ols5) > 0.1)
+# delete these observations from the sample
+subsample <- silc[-c(100, 1739), ]
+# estimate the model again
+ols5 <- lm(inc20 ~
+             degurba +
+             sex + 
+             age + agesq + 
+             activity + 
+             birthplace + 
+             workinghours + workinghours_sq + workinghours_cu +
+             educ +
+             degurba:sex,
+           data = subsample,
+           weights = wght)
+plot(cooks.distance(ols5))
+
+# BOOTSTRAPPING -------------------------------------------
+
+# how to make functions in R
+quadratic_equation_solver <- function(a, b, c){
+  x1 <- (-b + (b^2 - 4*a*c)^(1/2) ) / (2*a)
+  x2 <- (-b - (b^2 - 4*a*c)^(1/2) ) / (2*a)
+  return(c(x1, x2))
+}
+quadratic_equation_solver(a = 1, b = -3, c = 1)
+
+# first create bootstrapping function
+# you have to call it data and indices because of the boot package
+boot_fn <- function(data, indices){
+  
+  # specify data
+  d <- data[indices, ]
+  
+  # specify model
+  model <- lm(inc20 ~
+                degurba +
+                sex + 
+                age + agesq + 
+                activity2 + 
+                birthplace + 
+                workinghours + workinghours_sq + workinghours_cu +
+                educ +
+                degurba:sex,
+              data = d,
+              weights = wght)
+  
+  # specify what to return
+  return(coef(model))
+}
+
+# set seed to always draw the same numbers
+# for reproducability
+set.seed(123)
+
+# bootstrap
+# 1000 models in there
+boot_res <- boot::boot(data = silc, statistic = boot_fn, R = 1000)
+
+# different coefficients fo reach iteration
+View(boot_res$t)
+
+# from these 1000 coefficients, estimate the standard deviations
+# iterating over colums
+boot_se <- apply(boot_res$t, 2, sd)
+
+# initial coefficients
+boot_coef <- boot_res$t0
+
+# z-values
+z_values <- boot_coef / boot_se
+
+# p-values (for significance)
+p_values <- 2*(1-pnorm(abs(z_values)))
+
+# result dataframe
+boot_results <- data.frame(
+  #term = names(boot_coef),
+  estimate = round(boot_coef,3),
+  std_error = round(boot_se,3),
+  p_values = round(p_values,3)
+)
+boot_results
+
+# if you want stars
+make_p_stars <- function(x){
+  out <- ifelse(x < 0.001, "***",
+                ifelse(x < 0.01, "**",
+                       ifelse(x < 0.05, "*",
+                              ifelse(x < 0.1, ".", ""))))
+  return(out)
+}
+
+boot_results$stars <- make_p_stars(boot_results$p_values)
+boot_results
