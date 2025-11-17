@@ -2,6 +2,7 @@
 
 # for a good introduction to R-spatial, see: https://cengel.github.io/R-spatial/
 # for a collection of spatial Data for Austria go to: https://www.data.gv.at/ 
+# international: https://freegisdata.rtwilson.com/ 
 # for graphs in R: https://r-graph-gallery.com/ 
 # for a tutorial on leaflet in R: https://rstudio.github.io/leaflet/ 
 
@@ -45,6 +46,26 @@ bez
 # plotting it
 plot(bez)
 plot(st_geometry(bez))
+
+
+# 2.1. Natural earth ----------------------------------------------------------
+# https://cran.r-project.org/web/packages/rnaturalearth/vignettes/rnaturalearth.html
+# install.packages("rnaturalearth")
+library(rnaturalearth)
+
+countrydata <- rnaturalearth::ne_countries()
+glimpse(countrydata)
+class(countrydata)
+plot(st_geometry(countrydata))
+
+# 2.2. Eurostat ---------------------------------------------------------------
+# https://ropengov.github.io/eurostat/articles/eurostat_tutorial.html 
+# install.packages("eurostat")
+library(eurostat)
+
+europe <- get_eurostat_geospatial()
+glimpse(europe)
+plot(st_geometry(europe))
 
 # 3. PROJECTIONS ----------------------------------------------------------------------------------
 # The earth is a sphere, but maps (and our geomentry) is flat
