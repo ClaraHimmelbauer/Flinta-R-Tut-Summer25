@@ -11,7 +11,7 @@ sapply(packages, library, character.only = T)
 
 # cumulative density Functions
 genCDF<-function(x,w) ewcdf(x=x,weights = w, normalise = FALSE)(x)/sum(w)
-cutCDF<-function(x,w,q) cut(genCDF(x,w),breaks=seq(0,1,1/q),labels = as.character(1:q))
+  cutCDF<-function(x,w,q) cut(genCDF(x,w),breaks=seq(0,1,1/q),labels = as.character(1:q))
 
 # DATA ----------------------------------------------------
 
@@ -27,10 +27,10 @@ silc$employed <- factor(silc$employed,
                         levels = c(0,1),
                         labels = c("no", "yes"))
 
-# Deciles
+# vingtiles
 silc <- silc |>
   filter(netinc>0) |>
-  mutate(across(c(netinc), 
+  mutate(across(c(netinc, grossinc), 
                 list("20" = ~cutCDF(., pweight, 20))))
 
 silc$netinc_20 <- as.numeric(as.character(silc$netinc_20))
