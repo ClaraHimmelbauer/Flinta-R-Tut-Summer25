@@ -192,7 +192,7 @@ p_age <- ggplot(
   
   # smooth (unweighted)
   geom_smooth(
-    color = "#3366BB"        # same blue as in loop
+    color = "#3366BB"       
   ) +
   
   scale_size_continuous(guide = "none") +  # no size legend
@@ -232,7 +232,7 @@ silc$strata <- interaction(silc$state, silc$region, drop = TRUE)
 
 # Individual-level survey design
 silc.svy <- svydesign(
-  ids = ~pid,           # Primary Sampling Unit (PSU) is the individual ID
+  ids = ~hid,           # Primary Sampling Unit (PSU) is the individual ID
   strata = ~strata,      # Stratification variable: 'region x state'
   weights = ~pweight,   # Use personal survey weights to ensure representation
   data = silc,       # Input dataset
