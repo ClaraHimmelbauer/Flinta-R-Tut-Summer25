@@ -18,10 +18,10 @@ cutCDF<-function(x,w,q) cut(genCDF(x,w),breaks=seq(0,1,1/q),labels = as.characte
 silc <- readRDS("data/silc_2022.rds")
 glimpse(silc)
 
+# DATA WRANGLING ------------------------------------------
+
 silc<- silc |>
   filter(age>=18, workinghours>0)
-
-# DATA WRANGLING ------------------------------------------
 
 silc$employed <- factor(silc$employed,
                         levels = c(0,1),
@@ -75,41 +75,91 @@ i <- 5
 i <- 3
 
 
-for(i in 1:length(names)){
-  colname <- names[i]
-  num <- is.numeric(silc[[colname]])
+silc$educ <- forcats::fct_relevel(
+  silc$educ,
+  "Compulsory schooling",
+  "Apprenticeship / vocational training",
+  "Technical or commercial school",
+  "Upper secondary (Matura)",
+  "University or higher education degree",
+  "Other post-secondary degree"
+)
+
+color_sex <- c("Male" = "#4477AA", "Female" = "#CC6677")
+color_default <- "skyblue2"
+line_col <- "grey20"
+
+
+
+for (v in names) {
   
-  if(num == TRUE){
-    cor <- cor(silc[[colname]], silc$netinc_20)
+  var <- v
+  is_num <- is.numeric(silc[[var]])
+  
+  if (is_num) {
+    # ---------------- NUMERIC ----------------
+    cor_val <- cor(silc[[var]], silc$netinc_20, use = "complete.obs")
     
-    p <- ggplot(data = silc,
-                aes(x = !!sym(colname), y = netinc_20, weight = pweight)) +
-      geom_point(color = "grey30") +
-      geom_smooth(color = "slateblue") +
-      labs(title = paste0("Correlation between ", colname, " and income"),
-           subtitle = paste0("Cor: ", round(cor, 4)),
-           x = colname,
-           y = "Income vingtile") +
-      theme_minimal()
+    p <- ggplot(silc, aes(x = .data[[var]], y = netinc_20)) +
+      geom_point(aes(size = pweight), color = "grey40", alpha = 0.35) +
+      geom_smooth(color = "#3366BB") +
+      scale_size_continuous(guide = "none") +
+      labs(
+        title = paste0("Correlation: ", var, " vs income"),
+        subtitle = paste0("Cor: ", round(cor_val, 3)),
+        x = var,
+        y = "Income vingtile"
+      ) +
+      theme_minimal(base_size = 14)
     
     print(p)
+    
     
   } else {
+    # ---------------- CATEGORICAL: VIOLIN + BOXPLOT ----------------
     
-    p <- ggplot(data = silc,
-                aes(y = !!sym(colname), x = netinc_20, weight = pweight)) +
-      geom_density_ridges(fill = "slateblue", alpha = 0.5) +
-      labs(title = paste0("Correlation between ", colname, " and income"),
-           subtitle = "Categorical data",
-           y = colname,
-           x = "Income vingtile") +
-      coord_flip() +
-      theme_minimal()
+    # Farben: sex bekommt spezielle Farben, Rest skyblue2
+    if (var == "sex") {
+      fill_scale <- scale_fill_manual(values = color_sex)
+    } else {
+      # Wiederhole skyblue2 so oft wie Levels vorhanden
+      fill_scale <- scale_fill_manual(
+        values = rep(color_default, length(levels(silc[[var]])))
+      )
+    }
+    
+    p <- ggplot(silc, aes(
+      x = netinc_20,
+      y = .data[[var]],
+      weight = pweight,
+      fill = .data[[var]]
+    )) +
+      geom_violin(
+        alpha = 0.35,
+        color = NA,
+        trim = FALSE
+      ) +
+      geom_boxplot(
+        width = 0.12,
+        color = line_col,
+        alpha = 0.95,
+        outlier.color = line_col
+      ) +
+      fill_scale +
+      labs(
+        title = paste0("Weighted distribution of income by ", var),
+        subtitle = "Weighted violin + boxplot",
+        x = "Income vingtile",
+        y = var
+      ) +
+      theme_minimal(base_size = 14) +
+      theme(
+        legend.position = "none",
+        plot.title = element_text(face = "bold")
+      )
     
     print(p)
-    
   }
-  
 }
 
 
@@ -117,32 +167,46 @@ for(i in 1:length(names)){
 # EXAMPLE 1: Numerical variable: "age"
 # --------------------------------------------------------------
 
-# 1. Check if "age" is numeric
+# 1. Check if age is numeric
 is.numeric(silc$age)
-# -> TRUE
+# TRUE
 
-# 2. Calculate the correlation between age and income
-#    We use 'complete.obs' so that missing values do not break cor()
+# 2. Weighted correlation
 cor_age <- cor(silc$age, silc$netinc_20, use = "complete.obs")
 
-# 3. Create the plot
+# 3. Create plot identical to loop style
 p_age <- ggplot(
-  data = silc,
+  silc,
   aes(
-    x = age,                # numerical variable on the x-axis
-    y = netinc_20,              # income vingtile on the y-axis
-    weight = pweight           # survey weight for representativeness
+    x = age,
+    y = netinc_20
   )
 ) +
-  geom_point(color = "grey30") +       # scatter points
-  geom_smooth(color = "slateblue") +   # smooth regression line (LOESS)
+  # weighted scatterpoints
+  geom_point(
+    aes(size = pweight),     # weighted point size
+    color = "grey40",
+    alpha = 0.35
+  ) +
+  
+  # smooth (unweighted)
+  geom_smooth(
+    color = "#3366BB"        # same blue as in loop
+  ) +
+  
+  scale_size_continuous(guide = "none") +  # no size legend
+  
   labs(
-    title = "Correlation between age and income",
-    subtitle = paste0("Cor: ", round(cor_age, 4)),
+    title = "Correlation: age vs income",
+    subtitle = paste0("Cor: ", round(cor_age, 3)),
     x = "Age",
     y = "Income vingtile"
   ) +
-  theme_minimal()
+  
+  theme_minimal(base_size = 14) +
+  theme(
+    plot.title = element_text(face = "bold")
+  )
 
 # 4. Show the plot
 p_age
