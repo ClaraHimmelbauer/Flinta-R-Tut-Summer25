@@ -61,7 +61,8 @@ for(i in 1:length(names)){
 # if else basics ------------
 
 x <- c(1,2,3)
-# x <- c("yes", "nope")
+
+#x <- c("yes", "nope")
 
 if(is.numeric(x)){
   print("wohoo, numeric")
@@ -101,9 +102,9 @@ for (v in names) {
     cor_val <- cor(silc[[var]], silc$netinc_20, use = "complete.obs")
     
     p <- ggplot(silc, aes(x = .data[[var]], y = netinc_20)) +
-      geom_point(aes(size = pweight), color = "grey40", alpha = 0.35) +
+      geom_point(aes(size = pweight), color = "grey40", alpha = 0.35) + # 
       geom_smooth(color = "#3366BB") +
-      scale_size_continuous(guide = "none") +
+      scale_size_continuous(guide = "none") + # no size legend
       labs(
         title = paste0("Correlation: ", var, " vs income"),
         subtitle = paste0("Cor: ", round(cor_val, 3)),
@@ -137,7 +138,7 @@ for (v in names) {
       geom_violin(
         alpha = 0.35,
         color = NA,
-        trim = FALSE
+        trim = FALSE # show full range  
       ) +
       geom_boxplot(
         width = 0.12,
