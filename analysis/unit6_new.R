@@ -11,7 +11,7 @@ sapply(packages, library, character.only = T)
 
 # cumulative density Functions
 genCDF<-function(x,w) ewcdf(x=x,weights = w, normalise = FALSE)(x)/sum(w)
-  cutCDF<-function(x,w,q) cut(genCDF(x,w),breaks=seq(0,1,1/q),labels = as.character(1:q))
+cutCDF<-function(x,w,q) cut(genCDF(x,w),breaks=seq(0,1,1/q),labels = as.character(1:q))
 
 # DATA ----------------------------------------------------
 
@@ -86,7 +86,7 @@ silc$educ <- forcats::fct_relevel(
   "Other post-secondary degree"
 )
 
-color_sex <- c("Male" = "#4477AA", "Female" = "#CC6677")
+color_sex <- c("Male" = "#CC6677", "Female" = "#4477AA")
 color_default <- "skyblue2"
 line_col <- "grey20"
 
@@ -222,7 +222,7 @@ silc$agecu <- silc$age^3
 silc$workinghours_sq <- silc$workinghours^2
 silc$workinghours_cu <- silc$workinghours^3
 
-silc$activity2 <- ifelse(silc$activity == "Unemployed", "Unemployed",
+silc$activity2 <- ifelse(silc$activity == "Employed", "Employed",
                          ifelse(silc$activity == "Retired", "Retired", "Other non-employed"))
 silc$activity2 <- factor(silc$activity2)
 
