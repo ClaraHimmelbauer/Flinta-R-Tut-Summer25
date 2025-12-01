@@ -13,7 +13,7 @@ sapply(packages, library, character.only = T)
 ### Option 1: Plot with main categories of time use data
 ### Option 2: Plot the share of unpaid work done by men and women
 ### Option 3: Time use over the course of a day of men and women
-### Option 4: Share of people having less thn 3h of free time a day
+### Option 4: Share of people having less than 3h of free time a day
 
 # THIRD STEP: LOOK AT CODEBOOK ----------------------------
 
